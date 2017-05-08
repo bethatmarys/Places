@@ -1,9 +1,9 @@
 //back-end business logic
-function Place() {
-  locale = this.locale;
-  landmark = this.landmark;
-  season = this.season;
-  notes = this.notes;
+function Place (locale, landmark, season, notes) {
+  this.locale = locale;
+  this.landmark = landmark;
+  this.season = season;
+  this.notes = notes;
 };
 
 //front-end UI logic
@@ -17,8 +17,9 @@ $(function() {
     var inputtedNotes = $("input#notes").val();
 
     var newPlace = new Place(inputtedLocale, inputtedLandmark, inputtedSeason, inputtedNotes);
+    console.log(newPlace);
 
-    $("ul#places").append("<li><span class='place'>" + inputtedLocale + "</li></span>");
+    $("ul#places").append("<li><span class='place'>" + newPlace.locale + "</li></span>");
 
     $(".place").last().click(function() {
       $("#show-place").show();
